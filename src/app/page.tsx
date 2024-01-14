@@ -6,10 +6,12 @@ import Col from 'react-bootstrap/Col';
 export default function Home() {
   return (
     <Container>
-      <Row>
-        <h1>Stockholm Transport Emissions Calculator</h1>
-        <Search />
+      <Row className="m-3">
+        <Col className="text-center">
+          <h3>Stockholm Transport Emissions Calculator</h3>
+        </Col>
       </Row>
+      <Search />
     </Container>
   );
 }
