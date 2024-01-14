@@ -17,13 +17,23 @@ export default function Search() {
   const [toStops, setToStops] = useState([]);
   const [fromStop, setFromStop] = useState({ Name: '' });
   const [toStop, setToStop] = useState({ Name: '' });
+  const [routes, setRoutes] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
   async function getRoutes() {
+    setIsLoading(true);
     console.log(fromStop);
-    // const response = await fetch('/api/stops?query=' + searchString);
-    // const data = await response.json();
-    // setStops(data.data);
+    console.log(toStop);
+    const originExtId = fromStop.SiteId;
+    const destExtId = toStop.SiteId;
+    const response = await fetch(
+      `/api/routes?originExtId=${originExtId}&destExtId=${destExtId})`
+    );
+    const data = await response.json();
+    console.log(response);
+    setRoutes(data);
+    console.log(data);
+    setIsLoading(false);
   }
 
   return (
@@ -59,7 +69,7 @@ export default function Search() {
         </Row>
         <Row className="m-3">
           <Col className="text-center">
-            <Button variant="primary" type="submit" disabled={isLoading}>
+            <Button variant="primary" type="submit">
               {isLoading ? 'Loading…' : 'Search'}
             </Button>
           </Col>
