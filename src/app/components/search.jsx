@@ -27,7 +27,7 @@ export default function Search() {
     const originExtId = fromStop.SiteId;
     const destExtId = toStop.SiteId;
     const response = await fetch(
-      `/api/routes?originExtId=${originExtId}&destExtId=${destExtId})`
+      `/api/routes?originExtId=${originExtId}&destExtId=${destExtId}`
     );
     const data = await response.json();
     console.log(response);
