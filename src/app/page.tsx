@@ -1,4 +1,4 @@
-import SearchFields from './components/searchFields';
+import Search from './components/search';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -8,9 +8,8 @@ export default function Home() {
     <Container>
       <Row>
         <h1>Stockholm Transport Emissions Calculator</h1>
-        <SearchFields />
+        <Search />
       </Row>
-      <Row></Row>
     </Container>
   );
 }
