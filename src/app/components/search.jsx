@@ -15,9 +15,20 @@ const formID = {
 export default function Search() {
   const [fromStops, setFromStops] = useState([]);
   const [toStops, setToStops] = useState([]);
+  const [fromStop, setFromStop] = useState('');
+  const [toStop, setToStop] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  async function getRoutes(formData) {
+    console.log('fires!');
+
+    // const response = await fetch('/api/stops?query=' + searchString);
+    // const data = await response.json();
+    // setStops(data.data);
+  }
 
   return (
-    <Form>
+    <Form action={getRoutes}>
       <Form.Group controlId="formSearch">
         <Row>
           <Col>
@@ -25,30 +36,34 @@ export default function Search() {
               label={'From'}
               id={formID.fromID}
               setStops={setFromStops}
+              setStop={setFromStop}
+              value={fromStop}
             />
-            <StopsDataList id={formID.fromID} stops={fromStops} />
+            <StopsDataList
+              id={formID.fromID}
+              stops={fromStops}
+              setStops={setFromStops}
+              setStop={setFromStop}
+              value={fromStop}
+            />
           </Col>
           <Col>
             <FormInput label={'To'} id={formID.toID} setStops={setToStops} />
-            <StopsDataList id={formID.toID} stops={toStops} />
+            <StopsDataList
+              id={formID.toID}
+              stops={toStops}
+              setStops={setToStops}
+            />
           </Col>
         </Row>
         <Row className="m-3">
           <Col className="text-center">
-            <Button variant="primary" type="submit">
-              Search
+            <Button variant="primary" type="submit" disabled={isLoading}>
+              {isLoading ? 'Loading…' : 'Search'}
             </Button>
           </Col>
         </Row>
       </Form.Group>
     </Form>
-    // <Button
-    //   variant="primary"
-    //   disabled={isLoading}
-    //   onClick={!isLoading ? handleClick : null}
-    // >
-    //   {isLoading ? 'Loading…' : 'Click to load'}
-    // </Button>
-    //   ;
   );
 }
