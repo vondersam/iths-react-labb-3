@@ -1,21 +1,17 @@
 import Form from 'react-bootstrap/Form';
 
-export default function stopsDataList({ id, stops, setStops, setStop, value }) {
+export default function stopsDataList({ stops, setStops, setStop }) {
   function handleClick(event) {
-    console.log(event.target.innerText);
-    setStop(event.target.innerText);
+    const stopObj = JSON.parse(event.target.value);
+    setStop(stopObj);
     setStops([]);
   }
   return (
     <>
       {stops.length > 0 && (
-        <Form.Select
-          form={id}
-          htmlSize={stops.length}
-          onClick={(e) => handleClick(e)}
-        >
+        <Form.Select htmlSize={stops.length} onClick={(e) => handleClick(e)}>
           {stops.map((stop) => (
-            <option key={stop.Name} value={stop}>
+            <option key={stop.Name} value={JSON.stringify(stop)}>
               {stop.Name}
             </option>
           ))}

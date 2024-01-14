@@ -15,13 +15,12 @@ const formID = {
 export default function Search() {
   const [fromStops, setFromStops] = useState([]);
   const [toStops, setToStops] = useState([]);
-  const [fromStop, setFromStop] = useState('');
-  const [toStop, setToStop] = useState('');
+  const [fromStop, setFromStop] = useState({ Name: '' });
+  const [toStop, setToStop] = useState({ Name: '' });
   const [isLoading, setIsLoading] = useState(false);
 
-  async function getRoutes(formData) {
-    console.log('fires!');
-
+  async function getRoutes() {
+    console.log(fromStop);
     // const response = await fetch('/api/stops?query=' + searchString);
     // const data = await response.json();
     // setStops(data.data);
@@ -34,25 +33,27 @@ export default function Search() {
           <Col>
             <FormInput
               label={'From'}
-              id={formID.fromID}
               setStops={setFromStops}
               setStop={setFromStop}
-              value={fromStop}
+              stop={fromStop}
             />
             <StopsDataList
-              id={formID.fromID}
               stops={fromStops}
               setStops={setFromStops}
               setStop={setFromStop}
-              value={fromStop}
             />
           </Col>
           <Col>
-            <FormInput label={'To'} id={formID.toID} setStops={setToStops} />
+            <FormInput
+              label={'To'}
+              setStops={setToStops}
+              setStop={setToStop}
+              stop={toStop}
+            />
             <StopsDataList
-              id={formID.toID}
               stops={toStops}
               setStops={setToStops}
+              setStop={setToStop}
             />
           </Col>
         </Row>
