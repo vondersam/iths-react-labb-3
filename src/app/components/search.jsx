@@ -7,32 +7,22 @@ import Row from 'react-bootstrap/Row';
 import StopsSelect from './stopsSelect';
 import FormInput from './formInput';
 
-const formID = {
-  fromID: 'fromID',
-  toID: 'toID'
-};
-
-export default function Search() {
+export default function Search({ setRoutes }) {
   const [fromStops, setFromStops] = useState([]);
   const [toStops, setToStops] = useState([]);
   const [fromStop, setFromStop] = useState({ Name: '' });
   const [toStop, setToStop] = useState({ Name: '' });
-  const [routes, setRoutes] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
   async function getRoutes() {
     setIsLoading(true);
-    console.log(fromStop);
-    console.log(toStop);
     const originExtId = fromStop.SiteId;
     const destExtId = toStop.SiteId;
     const response = await fetch(
       `/api/routes?originExtId=${originExtId}&destExtId=${destExtId}`
     );
     const data = await response.json();
-    console.log(response);
     setRoutes(data);
-    console.log(data);
     setIsLoading(false);
   }
 
