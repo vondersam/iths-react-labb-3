@@ -1,4 +1,5 @@
 import calculateDistance from './calculateDistance';
+import calculateEmissions from './calculateEmissions';
 
 export default function getInfo(trip) {
   let tripStats = [];
@@ -12,13 +13,14 @@ export default function getInfo(trip) {
         tripSection.Destination.lon,
         tripSection.Destination.lat
       );
-      // const emissions = calculateEmissions(distance)
+      const transportType = tripSection.Product.catOut.trim().toLowerCase();
+      const emissions = calculateEmissions(distance, transportType);
       const tripSectionStat = {
         origin: tripSection.Origin.name,
         destination: tripSection.Destination.name,
         distanceKm: distance,
-        // emissions: emissions,
-        transportType: tripSection.Product.catOut,
+        emissions: emissions,
+        transportType: transportType,
         tranportLine: tripSection.Product.line
       };
       tripStats.push(tripSectionStat);

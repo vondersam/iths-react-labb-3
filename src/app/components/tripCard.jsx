@@ -9,7 +9,6 @@ export default function TripCard({ trip }) {
     <Card>
       <Card.Body>
         <Card.Title>{formatDuration(trip.duration)}</Card.Title>
-
         <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
         <Card.Text></Card.Text>
         <Card.Link href="#">Card Link</Card.Link>
