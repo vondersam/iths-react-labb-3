@@ -1,6 +1,6 @@
 import Form from 'react-bootstrap/Form';
 
-export default function stopsDataList({ stops, setStops, setStop }) {
+export default function stopsSelect({ stops, setStops, setStop }) {
   function handleClick(event) {
     const stopObj = JSON.parse(event.target.value);
     setStop(stopObj);

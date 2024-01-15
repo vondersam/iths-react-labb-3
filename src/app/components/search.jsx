@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import StopsDataList from './stopsDataList';
+import StopsSelect from './stopsSelect';
 import FormInput from './formInput';
 
 const formID = {
@@ -47,7 +47,7 @@ export default function Search() {
               setStop={setFromStop}
               stop={fromStop}
             />
-            <StopsDataList
+            <StopsSelect
               stops={fromStops}
               setStops={setFromStops}
               setStop={setFromStop}
@@ -60,7 +60,7 @@ export default function Search() {
               setStop={setToStop}
               stop={toStop}
             />
-            <StopsDataList
+            <StopsSelect
               stops={toStops}
               setStops={setToStops}
               setStop={setToStop}
