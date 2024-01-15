@@ -1,8 +1,8 @@
 import calculateDistance from './calculateDistance';
 import calculateEmissions from './calculateEmissions';
 
-export default function getInfo(trip) {
-  let tripStats = [];
+export default function getTripInfo(trip) {
+  let tripInfo = [];
   for (const tripSection of trip.LegList.Leg) {
     // Extract only motorized trip sections
     // and not walks
@@ -15,7 +15,7 @@ export default function getInfo(trip) {
       );
       const transportType = tripSection.Product.catOut.trim().toLowerCase();
       const emissions = calculateEmissions(distance, transportType);
-      const tripSectionStat = {
+      const tripSectionInfo = {
         origin: tripSection.Origin.name,
         destination: tripSection.Destination.name,
         distanceKm: distance,
@@ -23,8 +23,8 @@ export default function getInfo(trip) {
         transportType: transportType,
         tranportLine: tripSection.Product.line
       };
-      tripStats.push(tripSectionStat);
+      tripInfo.push(tripSectionInfo);
     }
   }
-  return tripStats;
+  return tripInfo;
 }
