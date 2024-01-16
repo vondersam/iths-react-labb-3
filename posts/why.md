@@ -1,0 +1,8 @@
+---
+title: 'What is STEC needed?'
+date: '2024-01-15'
+---
+
+# Why Stockholm Transport Emissions Calculator is needed
+
+Around 25% of global CO2 emissions come from transportation. Knowing the emissions of the different routes to move around Stockholm can play an important role in reducing them by choosing the ones with the lowest emissions.

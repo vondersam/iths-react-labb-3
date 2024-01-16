@@ -1,5 +1,5 @@
 import Card from 'react-bootstrap/Card';
-import formatDuration from './../helpers/formatDuration';
+import formatDuration from '../helpers/formatDuration';
 import getTripInfo from '../helpers/getTripInfo';
 import unifyTripInfo from '../helpers/unifyTripInfo';
 import TransportCardPart from './transportCardPart';

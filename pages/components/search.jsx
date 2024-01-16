@@ -1,5 +1,4 @@
-'use client';
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -14,7 +13,8 @@ export default function Search({ setRoutes }) {
   const [toStop, setToStop] = useState({ Name: '' });
   const [isLoading, setIsLoading] = useState(false);
 
-  async function getRoutes() {
+  async function getRoutes(event) {
+    event.preventDefault();
     setIsLoading(true);
     const originExtId = fromStop.SiteId;
     const destExtId = toStop.SiteId;
@@ -27,7 +27,7 @@ export default function Search({ setRoutes }) {
   }
 
   return (
-    <Form action={getRoutes}>
+    <Form>
       <Form.Group controlId="formSearch">
         <Row>
           <Col>
@@ -59,7 +59,7 @@ export default function Search({ setRoutes }) {
         </Row>
         <Row className="m-3">
           <Col className="text-center">
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" onClick={getRoutes}>
               {isLoading ? 'Loading…' : 'Search'}
             </Button>
           </Col>

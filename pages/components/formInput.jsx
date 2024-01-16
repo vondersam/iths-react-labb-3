@@ -2,7 +2,7 @@ import Form from 'react-bootstrap/Form';
 
 export default function FormInput({ label, setStops, setStop, stop }) {
   async function getStops() {
-    const response = await fetch('/api/stops?query=' + stop.Name);
+    const response = await fetch(`/api/stops?name=${stop.Name}`);
     const data = await response.json();
     setStops(data.data);
   }
