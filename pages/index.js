@@ -1,5 +1,4 @@
 'use client';
-import { Inter } from 'next/font/google';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import Container from 'react-bootstrap/Container';
@@ -7,8 +6,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import fs from 'fs';
-import Search from './components/search';
-import TripList from './components/tripList';
+import Search from '../components/search';
+import TripList from '../components/tripList';
 
 export const getStaticProps = async () => {
   const files = fs.readdirSync('posts');

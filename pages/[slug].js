@@ -8,7 +8,7 @@ import { marked } from 'marked';
 import { Nav } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import NavItem from './components/navItem';
+import NavItem from '../components/navItem';
 
 export default function Post({ htmlString, data, slugs }) {
   return (

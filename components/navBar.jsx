@@ -7,7 +7,7 @@ const NavBar = ({ slugs }) => {
       <Nav.Item>
         <Nav.Link href="/">Home</Nav.Link>
       </Nav.Item>
-      {slugs.map((slug) => {
+      {slugs?.map((slug) => {
         return <NavItem key={slug} slug={slug} />;
       })}
     </Nav>

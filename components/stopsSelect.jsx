@@ -11,8 +11,8 @@ export default function stopsSelect({ stops, setStops, setStop }) {
       {stops.length > 0 && (
         <Form.Select htmlSize={stops.length} onClick={(e) => handleClick(e)}>
           {stops.map((stop) => (
-            <option key={stop.Name} value={JSON.stringify(stop)}>
-              {stop.Name}
+            <option key={stop?.Name} value={JSON.stringify(stop)}>
+              {stop?.Name}
             </option>
           ))}
         </Form.Select>

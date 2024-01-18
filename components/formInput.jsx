@@ -14,7 +14,7 @@ export default function FormInput({ label, setStops, setStop, stop }) {
     <>
       <Form.Label>{label}</Form.Label>
       <Form.Control
-        value={stop.Name}
+        value={stop?.Name}
         type="search"
         onChange={(e) => handleChange(e)}
         placeholder={label}
