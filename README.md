@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Stockholm Transport Emissions Calculator
 
-## Getting Started
+Stockholm Transport Emissions Calculator is a web app where you can search a trip between two stations in the Stockholm's transport system and gives you information on the possible routes for that trip, their length in time and kilometers and the emissions created by that trip in CO2e/pKm and person.
 
-First, run the development server:
+The web app was created as lab 3 in the React course at IT-Högskolan, Sweden.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+It is deployed using Vercel [here](https://iths-react-labb-3-ivory.vercel.app/).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# How Stockholm Transport Emissions Calculator works
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Stockholm Transport Emissions Calculator uses two SL's APIs (Storstockholms Lokaltrafik, Transport of Stockholm) available in [Trafiklab](https://www.trafiklab.se/) and some further calculations to obtain the information that the user is given.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. We use [SL Stop lookup v1.0 (Platsuppslag)](https://www.trafiklab.se/api/trafiklab-apis/sl/stop-lookup/) for getting the stops suggestions on the in the origin and destination search fields.
 
-## Learn More
+2. We use [SL Route-planner v3.1 (Reseplanerare 3.1)](https://www.trafiklab.se/api/trafiklab-apis/sl/route-planner-31/) to obtain the possible routes between the origin and destination.
 
-To learn more about Next.js, take a look at the following resources:
+3. We calculate the distance in kilometers between all the stops in each route by using the [Haversine formula](https://en.wikipedia.org/wiki/Haversine_formula)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. We calculate the emissions by multiplying the whole route's distance in kilometers by some emission factors extracted from multiple sources. These are the factors used, where gCO2e/pkm stands for grams of CO2 per kilometer per person:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   - Train, 5 gCO2e/pkm
 
-## Deploy on Vercel
+   - Tram, 6 gCO2e/pkm
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   - Metro, 6 gCO2e/pkm
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   - Bus, 7 gCO2e/pkm
+
+   - Boat, 226 gCO2e/pkm
+
+These factors are just approximations. The data showed in the app is just to show the prototype of application and is not claimed that they reflect the reality.
