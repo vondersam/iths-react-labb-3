@@ -1,7 +1,7 @@
 import Card from 'react-bootstrap/Card';
-import formatDuration from '../pages/helpers/formatDuration';
-import getTripInfo from '../pages/helpers/getTripInfo';
-import unifyTripInfo from '../pages/helpers/unifyTripInfo';
+import formatDuration from '../helpers/formatDuration';
+import getTripInfo from '../helpers/getTripInfo';
+import unifyTripInfo from '../helpers/unifyTripInfo';
 import TransportCardPart from './transportCardPart';
 
 export default function TripCard({ trip }) {
