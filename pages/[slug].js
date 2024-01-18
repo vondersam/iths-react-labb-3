@@ -8,6 +8,7 @@ import { marked } from 'marked';
 import { Nav } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import NavItem from './components/navItem';
 
 export default function Post({ htmlString, data, slugs }) {
   return (
@@ -22,13 +23,7 @@ export default function Post({ htmlString, data, slugs }) {
               <Nav.Link href="/">Home</Nav.Link>
             </Nav.Item>
             {slugs.map((slug) => {
-              return (
-                <Nav.Item key={slug}>
-                  <Nav.Link href={`/${slug}`}>
-                    {slug.charAt(0).toUpperCase() + slug.slice(1)}
-                  </Nav.Link>
-                </Nav.Item>
-              );
+              return <NavItem key={slug} slug={slug} />;
             })}
           </Nav>
           <div dangerouslySetInnerHTML={{ __html: htmlString }} />
