@@ -1,5 +1,5 @@
 // Grams of CO2 per passenger kilometer
-const gCO2ePkm = {
+const gCO2ePkm: { [key: string]: number } = {
   train: 5, // Pendeltåg.
   tram: 6, // Spårvagn/Lokalbana
   metro: 6, // Tunnelbanan
@@ -7,6 +7,9 @@ const gCO2ePkm = {
   boat: 226 // Båt
 };
 
-export default function calculateEmissions(distanceKm, transportType) {
+export default function calculateEmissions(
+  distanceKm: number,
+  transportType: string
+): number {
   return gCO2ePkm[transportType] * distanceKm;
 }
