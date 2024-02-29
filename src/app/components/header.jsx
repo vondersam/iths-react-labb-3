@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 function Header() {
   return (
     <>
-      <Navbar expand="lg" className="bg-body-tertiary">
+      <Navbar expand="lg" className="bg-body mb-4">
         <Navbar.Brand href="/">
           Stockholm Transport Emissions Calculator
         </Navbar.Brand>
