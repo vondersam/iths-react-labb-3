@@ -1,3 +1,4 @@
+'use client';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
@@ -13,11 +14,11 @@ export default function Search({ setRoutes }) {
   const [toStop, setToStop] = useState({ Name: '' });
   const [isLoading, setIsLoading] = useState(false);
 
-  async function getRoutes(event) {
-    event.preventDefault();
+  async function getRoutes() {
     setIsLoading(true);
     const originExtId = fromStop.SiteId;
     const destExtId = toStop.SiteId;
+    console.log(originExtId);
     const response = await fetch(
       `/api/routes?originExtId=${originExtId}&destExtId=${destExtId}`
     );
@@ -27,7 +28,7 @@ export default function Search({ setRoutes }) {
   }
 
   return (
-    <Form>
+    <Form action={getRoutes}>
       <Form.Group controlId="formSearch">
         <Row>
           <Col>
@@ -59,7 +60,7 @@ export default function Search({ setRoutes }) {
         </Row>
         <Row className="m-3">
           <Col className="text-center">
-            <Button variant="primary" type="submit" onClick={getRoutes}>
+            <Button variant="primary" type="submit">
               {isLoading ? 'Loading…' : 'Search'}
             </Button>
           </Col>
