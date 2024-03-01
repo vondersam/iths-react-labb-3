@@ -4,6 +4,10 @@ import calculateEmissions from './calculateEmissions';
 interface TripInfo {
   origin: string;
   destination: string;
+  originLon: number;
+  originLat: number;
+  destinationLon: number;
+  destinationLat: number;
   distanceKm: number;
   emissions: number;
   transportType: string;
@@ -27,6 +31,10 @@ export default function getTripInfo(trip: any): TripInfo[] {
       const tripSectionInfo: TripInfo = {
         origin: tripSection.Origin.name,
         destination: tripSection.Destination.name,
+        originLon: tripSection.Origin.lon,
+        originLat: tripSection.Origin.lat,
+        destinationLon: tripSection.Destination.lon,
+        destinationLat: tripSection.Destination.lat,
         distanceKm: distance,
         emissions: emissions,
         transportType: transportType,

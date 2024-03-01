@@ -1,7 +1,7 @@
 // Haversine formula to calculate the distance in km between two points
 // using their latitude and longitude
 // https://stackoverflow.com/questions/27928/calculate-distance-between-two-latitude-longitude-points-haversine-formula
-export default function getDistanceFromLatLonInKm(
+export default function calculateDistance(
   lat1: number,
   lon1: number,
   lat2: number,

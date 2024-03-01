@@ -18,7 +18,6 @@ export default function Search({ setRoutes }) {
     setIsLoading(true);
     const originExtId = fromStop.SiteId;
     const destExtId = toStop.SiteId;
-    console.log(originExtId);
     const response = await fetch(
       `/api/routes?originExtId=${originExtId}&destExtId=${destExtId}`
     );
