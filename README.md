@@ -2,9 +2,7 @@
 
 Stockholm Transport Emissions Calculator is a web app where you can search a trip between two stations in the Stockholm's transport system and gives you information on the possible routes for that trip, their length in time and kilometers and the emissions created by that trip in CO2e/pKm and person.
 
-The web app was created as lab 3 in the React course at IT-Högskolan, Sweden.
-
-It is deployed using Vercel [here](https://iths-react-labb-3-ivory.vercel.app/).
+It is deployed using Vercel [here](https://stockholm-transport-emissions-calculator.vercel.app/).
 
 # How Stockholm Transport Emissions Calculator works
 
