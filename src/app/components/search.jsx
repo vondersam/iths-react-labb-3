@@ -48,7 +48,12 @@ export default function Search({ setRoutes }) {
       </Row>
       <Row className="m-3">
         <Col className="text-center">
-          <Button variant="primary" type="submit">
+          <Button
+            variant="primary"
+            type="submit"
+            disabled={isLoading}
+            onClick={!isLoading ? getRoutes : null}
+          >
             {isLoading ? 'Loading…' : 'Search'}
           </Button>
         </Col>
