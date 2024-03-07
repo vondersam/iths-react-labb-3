@@ -1,8 +1,8 @@
 'use client';
 import { useState } from 'react';
 
+import CloseButton from 'react-bootstrap/CloseButton';
 import Form from 'react-bootstrap/Form';
-import { CloseButton } from 'react-bootstrap';
 import { AsyncTypeahead } from 'react-bootstrap-typeahead';
 
 export default function SearchField({ label, stops, setStops, setStop }) {
@@ -11,6 +11,7 @@ export default function SearchField({ label, stops, setStops, setStop }) {
     <>
       <Form.Label>{label}</Form.Label>
       <AsyncTypeahead
+        className="inputWithButton"
         promptText="Type to search"
         id={label}
         isLoading={isLoading}
@@ -26,7 +27,13 @@ export default function SearchField({ label, stops, setStops, setStop }) {
           setStop(selected[0]);
         }}
         options={stops}
-      />
+      >
+        {({ onClear, selected }) => (
+          <div className="rbt-aux clearButton">
+            {!!selected.length && <CloseButton onClick={onClear} />}
+          </div>
+        )}
+      </AsyncTypeahead>
     </>
   );
 }
