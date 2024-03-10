@@ -8,7 +8,12 @@ function Header() {
     <>
       <Navbar expand="lg" className="bg-body mb-4">
         <Navbar.Brand href="/">
-          Stockholm Transport Emissions Calculator
+          {/* Show on screens smaller than md */}
+          <div className="d-md-none">STEC</div>
+          {/* Show on screens bigger than md */}
+          <div className="d-none d-md-block">
+            Stockholm Transport Emissions Calculator
+          </div>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
