@@ -29,7 +29,7 @@ export default function Search({ setRoutes }) {
   return (
     <Form action={getRoutes}>
       <Row>
-        <Col>
+        <Col sm={12} md={6}>
           <SearchField
             label="From"
             stops={fromStops}
@@ -37,7 +37,7 @@ export default function Search({ setRoutes }) {
             setStop={setFromStop}
           />
         </Col>
-        <Col>
+        <Col sm={12} md={6}>
           <SearchField
             label="To"
             stops={toStops}
